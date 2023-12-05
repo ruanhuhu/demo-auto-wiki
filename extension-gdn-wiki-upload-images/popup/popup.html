@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <div class="form-item tip">
+     <label class="form-label">1. 请先点击上传图片按钮，再关闭上传图片弹窗。</label>
+    </div>
+    <!-- 上传图片选择，可多选，仅接受图片格式：jpg, jpeg, gif, png, bmp, webp -->
+    <div class="form-item">
+      <label for="fileInput" class="form-label">2. 选择上传的图片:</label>
+      <input class="form-content" type="file" id="fileInput" multiple accept="image/jpeg, image/jpg, image/gif, image/png, image/bmp, image/webp" /> 
+    </div>
+    <!-- 上传图片列表 -->
+    <div class="form-item result">
+      <label for="fileList" class="form-label">上传的图片结果<span id="uploadCountsWrapper">
+        (<span id="uploadCounts">0</span> / <span id="uploadTotal">4</span>)
+      </span>:</label>
+      <div class="form-content">
+        <ul id="fileList">
+        </ul>
+      </div>
+    </div>
+
+    <script src="./popup.js" type="module"></script>
+  </body>
+</html>

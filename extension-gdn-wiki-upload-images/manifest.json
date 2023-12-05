@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "R-gdn-wiki-upload-images",
+  "description": "在知识库文章中批量上传图片",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": ["activeTab", "tabs", "downloads"]
+}

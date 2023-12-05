@@ -1,0 +1,59 @@
+.form-item{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: 6px;
+}
+.form-label{
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+.form-item.tip .form-label{
+    color: #2be274;
+}
+.form-item.result{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.form-item.result .form-label{
+    display: flex;
+}
+.form-item.result .form-content{
+    margin: 6px 0;
+    width: 100%;
+}
+
+#fileList{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;   
+}
+.result .file-item{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    padding: 6px;
+    margin-bottom: 6px;
+}
+.result .file-item .file-name, 
+.result .file-item .file-url{
+    word-break: break-all;
+}
+.result .file-item .file-url{
+    color: #8a2be2;
+    margin-top: 4px;
+}
+.result .file-item.error .file-url{
+    color: #f00;
+}
+#uploadCountsWrapper{
+    display: none;
+}
+#uploadCountsWrapper.visible{
+    display: block;
+}
