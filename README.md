@@ -2,10 +2,10 @@
 1. 配置信息（config/index.js）
 3. 运行 `node index.js`
 3. 将生成的 markdown (dist/content.md)，拷贝到知识库文章编辑器上
-4. 使用 extension-gdn-wiki-upload-images 插件在 chrome 浏览器上批量上传图片文件，images/4/config.document_id 目录下的图片
+4. 使用 extension-wiki-upload-images 插件在 chrome 浏览器上批量上传图片文件，images/4/config.document_id 目录下的图片
   - 打开 chrome://extensions/
   - 开启右上角【开发者模式】
-  - 点击左上角【加载已解压的扩展程序】，选择 extension-gdn-wiki-upload-images 所在的目录
+  - 点击左上角【加载已解压的扩展程序】，选择 extension-wiki-upload-images 所在的目录
 
 ### 首次运行
 - 安装依赖，运行 `PUPPETEER_SKIP_DOWNLOAD=true npm install`
