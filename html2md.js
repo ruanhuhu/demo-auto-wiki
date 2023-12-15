@@ -15,14 +15,19 @@ const html2md = () => {
   // 过滤图片列表：![]()，并将图片地址和重命名的文件名，上传后的路径保存到 imgList 中
   const imgReg = /!\[\]\((.+?)\)/g
   const imgList = []  // { url: 'https://img.ui.cn/data/file/1/6/9/4488961.png', filename: '001.png', uploadUrl: '/images/4/1375/001.png' }
+  // { url: "https://cdn.fasionchan.com/p/4774f8bdc1e0cea55dcef123282b127b6af31420.png#width=230px", filename: "002.png", uploadUrl: "/images/4/1375/002.png"}
+  // { url: "https://cdn.fasionchan.com/coding-fan-wechat-soso.png?x-oss-process=image/resize,w_359", filename: "003.png", uploadUrl: "/images/4/1375/003.png" }
   let imgSrc = null
   const uploadedPath = getUploadPath() // /images/4/1375
   while (imgSrc = imgReg.exec(markdown)) {
     const url = imgSrc[1]
-    const imgSrcExt = path.extname(url)
+    const imgSrcExt = path.extname(url.split('?')[0])
+    // 取消图片后面的参数 #width=230px、?x-oss-process=image/resize,w_359
+    let urlWithoutParams = imgSrcExt.split('#')[0]
+    urlWithoutParams = urlWithoutParams.split('?')[0]
     const index = imgList.length + 1
     const imgSrcNewName = `${index}`.padStart(3, '0')
-    const filename = `${imgSrcNewName}${imgSrcExt}`
+    const filename = `${imgSrcNewName}${urlWithoutParams}`
 
     imgList.push({
       url,
