@@ -13,7 +13,7 @@ const html2md = () => {
 
 
   // 过滤图片列表：![]()，并将图片地址和重命名的文件名，上传后的路径保存到 imgList 中
-  const imgReg = /!\[\]\((.+?)\)/g
+  const imgReg = /!\[.*?\]\((.+?)\)/g
   const imgList = []  // { url: 'https://img.ui.cn/data/file/1/6/9/4488961.png', filename: '001.png', uploadUrl: '/images/4/1375/001.png' }
   // { url: "https://cdn.fasionchan.com/p/4774f8bdc1e0cea55dcef123282b127b6af31420.png#width=230px", filename: "002.png", uploadUrl: "/images/4/1375/002.png"}
   // { url: "https://cdn.fasionchan.com/coding-fan-wechat-soso.png?x-oss-process=image/resize,w_359", filename: "003.png", uploadUrl: "/images/4/1375/003.png" }
@@ -39,7 +39,7 @@ const html2md = () => {
   // 将 markdown 中的图片地址替换为上传后的地址，如：![](https://img.ui.cn/data/file/1/6/9/4488961.png) 替换为 ![](/images/4/1375/001.png)
   imgList.forEach((item, i) => {
     // 查找对应的![]()，并替换为上传后的地址
-    const reg = new RegExp(`!\\[\\]\\(${item.url}\\)`, 'g')
+    const reg = new RegExp(`!\\[.*?\]\\(${item.url}\\)`, 'g')
     markdown = markdown.replace(reg, `![](${item.uploadUrl})`)
   })
 
