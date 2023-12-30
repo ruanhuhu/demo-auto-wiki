@@ -61,6 +61,19 @@ const downloadImages = async () => {
     // Navigate the page to a URL
     if (!page.isClosed()) {
       await page.goto(config.website);
+      // 缓缓滚动页面高度，让图片加载出来
+      await page.evaluate(() => {
+        let y = 0;
+        const step = 100;
+        const timer = setInterval(() => {
+          if (y < document.body.scrollHeight) {
+            y += step;
+            window.scrollTo(0, y);
+          } else {
+            clearInterval(timer);
+          }
+        }, 100);
+      });
     }
 
   } catch (error) {
